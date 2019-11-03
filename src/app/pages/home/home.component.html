@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="bread-ripley d-flex justify-content-around mt-4" style="width: 25%; align-items: baseline;color: #76508e;
+  font-size: .9rem;">
+    <p>Tecno</p>
+    <i class="fas fa-chevron-right"></i>
+    <p>Television</p>
+    <i class="fas fa-chevron-right"></i>
+    <p style="    background-color: #76508e;
+    color: white;
+    padding: 3px 8px;
+    box-sizing: border-box;
+    border-radius: 21px;">Smart TV</p>
+  </div>
+
+  <div class="d-flex justify-content-between pb-2" style="border-bottom: 1px solid #e0dbdb;align-items: baseline;">
+    <p style="color: #6A6A6A;">
+      93 Resultados en Smart TV
+    </p>
+    <div>
+      <select class="form-control" style="width: 15rem;">
+        <option disabled>Ordenar por</option>
+        <option>Lo Nuevo</option>
+        <option>Menor Precio</option>
+        <option>Mayor Precio</option>
+        <option selected>Recomendados</option>
+        <option>Mas Vendidos</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="body-ripley mt-4" style="color: #6A6A6A;">
+
+    <div class="row">
+      <div class="col-md-3 col-lg-3">
+        <div style="padding: 10px;
+        background-color: #f8f8f8;">
+          <div style="padding: 4px;
+          border-left: 10px solid #76508E;">SMART TV</div>
+        </div>
+
+        <div class="filtros-ripley mt-3" style="
+        background-color: #f8f8f8; padding: 10px;">
+
+          <div class="d-flex flex-row align-items-center">
+            <i class="fas fa-sliders-h"></i>
+            <div class="ml-1">
+              FILTROS
+            </div>
+          </div>
+
+          <div class="mt-2 mb-2 d-flex justify-content-between flex-row align-items-center">
+            <p>Marca</p>
+            <i class="fas fa-chevron-up"></i>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-md-9 col-lg-9">
+
+        <div class="row">
+          <div class="col-sm-4" *ngFor="let producto of listProductsApi">
+            <img src="{{ producto.fullImage }}" class="img-fluid">
+            <p style="font-weight: 900;
+            font-size: 1.3rem;
+            margin-bottom: 0;">{{ producto.attributes[0].value }}</p>
+            <p style="font-size: .8rem; margin-bottom: 0;">{{ producto.name }}</p>
+            <p class="mb-0" style="font-size: 13px; text-decoration: line-through;">{{ producto.prices.formattedListPrice }}</p>
+            <p class="mb-0" style="font-size: 14px; font-weight: 900;">{{ producto.prices.formattedOfferPrice }}</p>
+            <div class="d-flex justify-content-start flex-row align-items-center">
+              <p class="mb-0 mr-1" style="font-weight: 900; color: #F84044;">{{ producto.prices.formattedCardPrice }}</p>
+              <img src="https://static.ripley.cl/images/opex.png" class="img-fluid" style="width: 20px;">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
