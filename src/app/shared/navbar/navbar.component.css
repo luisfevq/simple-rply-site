@@ -1,0 +1,45 @@
+.nav-cadenas-ripley {
+    background-color: #313131;
+}
+.nav-cadenas-ripley-items {
+    color: #97999B; 
+    font-size: .7rem;  
+    width: 70%;
+}
+.nav-principal-ripley {
+    background-color: #1A1A1A;
+}
+.nav-principal-menu-bars {
+    width: 35px; 
+    height: 35px; 
+    border-radius: 50%; 
+    background-color: #76508E; 
+    padding: 3px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-sizing: border-box;
+}
+.txt-menu-cat {
+    color: white; 
+    font-size: .8rem; 
+    width: 5rem; 
+    margin-bottom: 0; 
+    margin-left: .5rem;
+    line-height: 1; 
+    padding-top: 7px;
+}
+.search-bar-ripley {
+    width: 40vw; 
+    height: 2.5rem; 
+    border-radius: 22px;
+    border: none; padding: 0 24px;
+}
+.menu-nav-ripley {
+    line-height: 1.4;
+    padding: 0;
+    color: white;
+    font-size: .9rem;
+    text-align: right;
+    cursor: pointer;
+}

@@ -1,1 +1,126 @@
-<p>detail works!</p>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-2">
+                    <div *ngFor="let images of productArray.images">
+                        <img src="{{ images }}" style="width: 55px;" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <img src="{{ productArray.fullImage }}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <p class="f900 m-0 f1-5">{{ productArray.attributes[0].value }}</p>
+                <p class="f1-2 m-0 f600">{{ productArray.name }}</p>
+                <p class="f200 m-0 f0-8" style="color: #A1A1A1;">SKU: {{ productArray.partNumber }}</p>
+                <p class="f0-9 m-0" style="color: #818181;">{{ productArray.shortDescription }}</p>
+            </div>
+            <div class="mt-4" style="border-bottom: 1px solid #E8E8E8;">
+                <div class="d-flex justify-content-between" style="color: #9C9C9C;">
+                    <p class="m-0">Normal</p>
+                    <p class="m-0">{{ productArray.prices.formattedListPrice }}</p>
+                </div>
+                <div class="d-flex justify-content-between mt-2 f600" style="color: #9c9c9c;">
+                    <p class="m-0">Internet</p>
+                    <p class="m-0">{{ productArray.prices.formattedOfferPrice }}</p>
+                </div>
+                <div class="d-flex justify-content-between m-0 mt-2 f600" style="color: #F84044;">
+                    <p>Tarjeta Ripley</p>
+                    <p><img src="https://static.ripley.cl/images/opex.png" class="img-fluid"
+                            style="width: 20px;">{{ productArray.prices.formattedCardPrice }}</p>
+                </div>
+                <div class="d-flex justify-content-between m-0 mt-2 f0-9">
+                    <p class="f500" style="color: #6a6a6a;">Descuento</p>
+                    <p class="p-1" style="background-color: #F84044; color: white;">-{{ productArray.prices.discountPercentage }}%</p>
+                </div>
+                <div class="d-flex justify-content-between m-0 mt-2 f0-8 f500" style="color: #76508E;">
+                    <p>Acumulas</p>
+                    <p>{{ productArray.prices.ripleyPuntos }} RipleyPuntos GO</p>
+                </div>
+            </div>
+            <div class="mt-3 p-2" style="background-color: #FAF3FF;">
+                <div class="d-flex justify-content-between flex-row align-items-center">
+                    <img src="https://static.ripley.cl/images/extra_garantia.svg" style="width: 90px;">
+                    <p class="m-0 f0-8 f900" style="color: #76508E;">Protege tu producto con Garantía Extendida*</p>
+                    <p class="m-0 f1-2 f900" style="color: #76508E;">^</p>
+                </div>
+                <div class="d-flex justify-content-between flex-row align-items-center mt-4 f0-9" style="color: #76508E;">
+                    <p class="m-0">Extiende tu Garantia 2 Años</p>
+                    <p class="m-0 f900">{{ productArray.warranties[0].Price[0].formattedPriceValue }}</p>
+                </div>
+                <div class="d-flex justify-content-between flex-row align-items-center mt-2 f0-9" style="color: #76508E;">
+                    <p class="m-0">Extiende tu Garantia 3 Años</p>
+                    <p class="m-0 f900">{{ productArray.warranties[1].Price[0].formattedPriceValue }}</p>
+                </div>
+                <div class="d-flex justify-content-between flex-row align-items-center mt-3 f0-7" style="color: #76508E;">
+                    <p class="m-0">Con Extragarantía tu producto quedará protegido frente a defectos de fabricación ante
+                        fallas técnicas</p>
+                </div>
+                <div class="d-flex justify-content-between flex-row align-items-center mt-2 f0-7" style="color: #76508E;">
+                    <p class="m-0">Cubre todos los gastos de diagnóstico de falla, repuestos, mano de obra y traslados
+                        necesarios para la
+                        reparacion del producto. <a href="">Saber más</a></p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between flex-row align-items-center mt-4">
+                <div class="d-flex justify-content-between flex-row align-items-center btnnumero">
+                    <div style="width: 33.3%;">
+                        <p class="m-0">-</p>
+                    </div>
+                    <div style="width: 33.3%;">
+                        <p class="m-0">1</p>
+                    </div>
+                    <div style="width: 33.3%;">
+                        <p class="m-0">+</p>
+                    </div>
+                </div>
+                <div class="btnagregar">
+                    <p class="m-0" style="color: white;
+                    padding-top: .3rem;">Agregar a la bolsa</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="mt-5">
+
+                <div class="d-flex p-2" style="background-color: #F0F0F0; color: #6A6A6A; font-weight: 600;">
+                    <p class="m-0 p-2">-</p>
+                    <p class="m-0 p-2 flex-grow-1">DESCRIPCION</p>
+                    <p class="m-0 p-2">VER MENOS</p>
+                </div>
+                <div class="mt-3 p-2" style="color: #6A6A6A;" [innerHTML]="productArray.longDescription"></div>
+
+                <div class="d-flex p-2 mt-1" style="background-color: #F0F0F0; color: #6A6A6A; font-weight: 600;">
+                    <p class="m-0 p-2">-</p>
+                    <p class="m-0 p-2 flex-grow-1">ESPECIFICACIONES</p>
+                    <p class="m-0 p-2">VER MENOS</p>
+                </div>
+                <div class="mt-2 mb-1">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr *ngFor="let item of productArray.attributes">
+                                <td style="color: #6A6A6A; font-size: .9rem;">{{ item.name }}</td>
+                                <td style="color: #6A6A6A; font-size: .9rem;">{{ item.value }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-flex p-2 mt-1" style="background-color: #F0F0F0; color: #6A6A6A; font-weight: 600;">
+                    <p class="m-0 p-2">+</p>
+                    <p class="m-0 p-2 flex-grow-1">COMENTARIOS</p>
+                    <p class="m-0 p-2">VER MENOS</p>
+                </div>
+                <div class="d-flex p-2 mt-1 mb-5" style="background-color: #F0F0F0; color: #6A6A6A; font-weight: 600;">
+                    <p class="m-0 p-2">-</p>
+                    <p class="m-0 p-2 flex-grow-1">GARANTIA LEGAL Y DEVOLUCIONES</p>
+                    <p class="m-0 p-2">VER MENOS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

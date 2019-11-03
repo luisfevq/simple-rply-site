@@ -59,19 +59,42 @@
       <div class="col-md-9 col-lg-9">
 
         <div class="row">
-          <div class="col-sm-4" *ngFor="let producto of listProductsApi">
-            <img src="{{ producto.fullImage }}" class="img-fluid">
-            <p style="font-weight: 900;
-            font-size: 1.3rem;
-            margin-bottom: 0;">{{ producto.attributes[0].value }}</p>
-            <p style="font-size: .8rem; margin-bottom: 0;">{{ producto.name }}</p>
-            <p class="mb-0" style="font-size: 13px; text-decoration: line-through;">{{ producto.prices.formattedListPrice }}</p>
-            <p class="mb-0" style="font-size: 14px; font-weight: 900;">{{ producto.prices.formattedOfferPrice }}</p>
-            <div class="d-flex justify-content-start flex-row align-items-center">
-              <p class="mb-0 mr-1" style="font-weight: 900; color: #F84044;">{{ producto.prices.formattedCardPrice }}</p>
-              <img src="https://static.ripley.cl/images/opex.png" class="img-fluid" style="width: 20px;">
+
+          <!-- showLoading -->
+          <div class="col-md-4 offset-md-4" *ngIf="showLoader">
+            <div class="spinner-grow text-danger" role="status" style="width: 15px; height: 15px;">
+              <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-secondary" role="status" style="width: 15px; height: 15px;">
+              <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-warning" role="status" style="width: 15px; height: 15px;">
+              <span class="sr-only">Loading...</span>
+            </div>
+            <div class="spinner-grow text-primary" role="status" style="width: 15px; height: 15px;">
+              <span class="sr-only">Loading...</span>
             </div>
           </div>
+
+          <div class="col-sm-4" *ngFor="let producto of listProductsApi" (click)="detailPage(producto)">
+            <div *ngIf="!showLoader">
+              <img src="{{ producto.fullImage }}" class="img-fluid">
+              <p style="font-weight: 900;
+                font-size: 1.3rem;
+                margin-bottom: 0;">{{ producto.attributes[0].value }}</p>
+              <p style="font-size: .8rem; margin-bottom: 0;">{{ producto.name }}</p>
+              <p class="mb-0" style="font-size: 13px; text-decoration: line-through;">
+                {{ producto.prices.formattedListPrice }}</p>
+              <p class="mb-0" style="font-size: 14px; font-weight: 900;">{{ producto.prices.formattedOfferPrice }}</p>
+              <div class="d-flex justify-content-start flex-row align-items-center">
+                <p class="mb-0 mr-1" style="font-weight: 900; color: #F84044;">{{ producto.prices.formattedCardPrice }}
+                </p>
+                <img src="https://static.ripley.cl/images/opex.png" class="img-fluid" style="width: 20px;">
+              </div>
+            </div>
+          </div>
+          <!-- .ngFor -->
+
         </div>
 
       </div>

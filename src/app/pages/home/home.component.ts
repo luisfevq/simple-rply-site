@@ -3,6 +3,7 @@ import { NotifyService } from 'src/app/services/notify.service';
 import { StorageUtil } from 'src/app/util/storage';
 import { RipleyService } from 'src/app/services/ripley.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -25,12 +26,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     '2000375722161p',
   ];
 
+  totalProdutos = 9;
+  showLoader: boolean;
+
   token = '';
 
   constructor(
     private ripleyService: RipleyService,
     private notify: NotifyService,
-    private storage: StorageUtil) {
+    private storage: StorageUtil,
+    private router: Router) {
 
     const tok = JSON.parse(this.storage.obtenerToken());
     if (tok !== null) {
@@ -52,8 +57,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.listProductsApi = [];
     this.listProductsSKU.forEach((element) => {
       // leer token NotifyService, storage
+      this.showLoader = true;
       this.ripleyService.getDataProductId(element, this.token).subscribe((response: any) => {
-        console.log(response);
         if (!response.ok) {
           this.notify.session$.emit(false);
         }
@@ -66,12 +71,16 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, (error) => {
         console.error(error);
       });
+      this.showLoader = false;
     });
   }
 
-
   actualizarTokenLocal(tokenRefresh) {
     this.storage.guardarToken(tokenRefresh);
+  }
+
+  detailPage(producto) {
+    this.router.navigate(['/detail'], { queryParams: { data: JSON.stringify(producto) } });
   }
 
 }

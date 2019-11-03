@@ -1,0 +1,43 @@
+.f200 {
+    font-weight: 200;
+}
+.f500 {
+    font-weight: 600;
+}
+.f600 {
+    font-weight: 600;
+}
+.f900 {
+    font-weight: 900;
+}
+.f0-7{
+    font-size: .7rem;
+}
+.f0-8{
+    font-size: .8rem;
+}
+.f0-9{
+    font-size: .9rem;
+}
+.f1-2{
+    font-size: 1.2rem;
+}
+.f1-5{
+    font-size: 1.5rem;
+}
+.btnnumero {
+    width: 30%;
+    height: 3rem;
+    text-align: center;
+    padding: .44rem;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    color: #969292;
+}
+.btnagregar {
+    background-color: #F84044;
+    width: 70%;
+    height: 3rem;
+    text-align: center;
+    padding: .5rem;
+}

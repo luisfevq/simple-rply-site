@@ -1,5 +1,5 @@
-<div style="background-color: #313131;">
-  <div class="container d-flex" style="color: #97999B; font-size: .7rem;  width: 70%;">
+<div class="nav-cadenas-ripley">
+  <div class="container d-flex nav-cadenas-ripley-items">
     <p class="pr-5 pt-1 pb-1 mb-0">Ripley.com</p>
     <p class="pr-5 pt-1 pb-1 mb-0">Banco Ripley</p>
     <p class="pr-5 pt-1 pb-1 mb-0">Ripley Puntos Go</p>
@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div style="background-color: #1A1A1A;">
+<div class="nav-principal-ripley">
   <nav class="container navbar navbar-expand-lg navbar-dark bg-transparent">
     <img src="https://home.ripley.cl/front/public/images/r-com.png" alt="Desafio Ripley" class="mr-5" width="30px">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -18,14 +18,12 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <div style="width: 35px; height: 35px; border-radius: 50%; background-color: #76508E; padding: 3px;
-        display: flex; justify-content: center; align-items: center; box-sizing: border-box;">
+        <div class="nav-principal-menu-bars">
           <i class="fas fa-bars" style="color: white;"></i>
         </div>
-        <p class="mr-4" style="color: white; font-size: .8rem; width: 5rem; margin-bottom: 0; margin-left: .5rem;
-        line-height: 1; padding-top: 7px;">Menu de Categorias</p>
+        <p class="mr-4 txt-menu-cat">Menu de Categorias</p>
         <div>
-          <input type="text" placeholder="¿Que estas buscando?" style="width: 40vw; height: 2.5rem; border-radius: 22px;
+          <input type="text" placeholder="¿Que estas buscando?" class="search-bar-ripley" style="width: 40vw; height: 2.5rem; border-radius: 22px;
           border: none; padding: 0 24px;">
         </div>
         <div *ngIf="usuarioEmail !== ''">
@@ -67,10 +65,28 @@
                 font-size: 12px;
                 color: #76508E;
                 font-weight: 700;">¿Olvidaste tu contraseña?</i>
+
+                <div class="col-md-4 offset-md-4" *ngIf="loading">
+                  <div class="spinner-grow text-danger" role="status" style="width: 15px; height: 15px;">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <div class="spinner-grow text-secondary" role="status" style="width: 15px; height: 15px;">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <div class="spinner-grow text-warning" role="status" style="width: 15px; height: 15px;">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <div class="spinner-grow text-primary" role="status" style="width: 15px; height: 15px;">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>
+
                   <button class="mt-3 mb-2" style="background-color: #76508e;
                 color: white;
                 width: 90%;
-                padding: 6px 0;" type="submit" [disabled]="loading">Iniciar sesion</button>
+                padding: 6px 0;" type="submit" *ngIf="!loading">Iniciar sesion</button>
+
+
                 </form>
                 <p style="font-size: 0.8rem;
                 color: #8e8d8d;">¿No estas registrado? <a style="color: #76508e;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  productArray: any;
+
+  constructor(
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.cargarDetalleProducto();
+  }
+
+  cargarDetalleProducto() {
+    this.route.queryParams.subscribe((queryParams: any) => {
+      this.productArray = JSON.parse(queryParams.data);
+    });
   }
 
 }
